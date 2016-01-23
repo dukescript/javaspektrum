@@ -1,0 +1,75 @@
+<html><form class="pure-form pure-form-aligned">
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="first-name">First Name</label>
+                <input id="first-name" type="text" placeholder="First Name" data-bind="textInput: firstName">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="last-name">Last Name</label>
+                <input id="last-name" type="text" placeholder="Last Name" data-bind="textInput: lastName">
+            </div>
+
+            <!-- ko with: address -->
+            <div class="pure-control-group">
+                <label for="street">Street</label>
+                <input id="street" type="text" placeholder="Street" data-bind="textInput: street">
+            </div>
+            <div class="pure-control-group">
+                <label for="town">Town</label>
+                <input id="town" type="text" placeholder="Town" data-bind="textInput: town">
+            </div>
+
+            <!-- /ko -->
+
+            <div class="pure-control-group">
+                <label for="email">Email Address</label>
+                <input id="email" type="email" placeholder="Email Address" data-bind="textInput: email">
+            </div>
+            <hr>
+            <div > <h5>Phone:</h5>
+                <!-- ko foreach: phones -->
+                <form class="pure-form">
+                    <fieldset>
+                        <div class="pure-g">
+
+                            <input id="number" type="text" placeholder="Phone Number" data-bind="textInput: number">
+
+                            &nbsp;
+                            <select id="phone-type" data-bind="value: type">
+                                <option>HOME</option>
+                                <option>WORK</option>
+                                <option>MOBILE</option>
+                            </select>
+                            &nbsp;<button class="pure-button pure-button-primary" data-bind="click: $root.removePhoneEdited">-</button>
+                            &nbsp;<button class="pure-button pure-button-primary" data-bind="click: $root.addPhoneEdited">+</button>
+                            <br/>
+                            <div class="warning" data-bind="text: validate"></div>       
+
+                        </div>
+                    </fieldset>
+                </form>
+                <!-- /ko -->          
+            </div>  
+            <hr>
+            <h5>Tags</h5>
+            <!-- ko foreach: tags -->
+            <div class="pure-control-group">
+                <span data-bind="text: $data"></span>
+                <button class="pure-button pure-button-primary" data-bind="click: $parent.removeTag">-</button>
+            </div>
+            <!-- /ko --> 
+            <div class="pure-control-group">
+                <label for="tag">Add Tag</label>
+                <input id="tag" type="text" placeholder="Enter new Tag" data-bind="textInput: input">
+                <button class="pure-button pure-button-primary" data-bind="click: $parent.addTag">+</button>
+            </div>
+            <div class="pure-controls">
+                <button type="submit" class="pure-button pure-button-primary" data-bind="click: $root.commit">Save</button>
+                <button type="submit" class="pure-button pure-button-primary" data-bind="click: $root.cancel">Cancel</button>
+            </div>                
+        </fieldset>
+    </form>
+    <div data-bind="text: $root.message">
+    </div>
+</html>

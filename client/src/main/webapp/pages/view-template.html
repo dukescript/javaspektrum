@@ -1,0 +1,34 @@
+<html>
+
+    <!-- ko with: address -->
+    <div class="pure-control-group">
+        <span id="street"  data-bind="text: street"></span>
+    </div>
+    <div class="pure-control-group">
+        <span id="town"  data-bind="text: town"></span>
+    </div>
+
+    <!-- /ko -->
+
+    <div class="pure-control-group">
+        <span id="email" data-bind="text: email"></span>
+    </div>
+    <hr>
+    <div > 
+        <h5>Phone:</h5>
+        <!-- ko foreach: phones -->
+        <div>
+            <span id="phone-type" data-bind="text: type"></span>
+            <span id="number" type="text" placeholder="Phone Number" data-bind="text: number"></span>
+        </div>
+
+        <!-- /ko -->          
+    </div>  
+    <hr>
+    <h5>Tags</h5>
+    <!-- ko foreach: tags -->
+    <div >
+        <span data-bind="text: $data"></span>
+    </div>
+    <!-- /ko -->              
+</html>
